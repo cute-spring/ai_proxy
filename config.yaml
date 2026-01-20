@@ -1,0 +1,96 @@
+model_list:
+  - model_name: gpt-4
+    litellm_params:
+      model: azure/your-deployment-name
+      api_base: your-azure-api-endpoint
+      api_version: "2024-02-15-preview"
+      use_azure_ad: True
+      ssl_verify: "/path/to/your/ca-cert.pem"
+      http_proxy: "os.environ/AZURE_PROXY"
+      rpm: 1000
+
+  - model_name: gpt-4.1
+    litellm_params:
+      model: azure/your-gpt-4-1-deployment-name
+      api_base: your-azure-api-endpoint
+      api_version: "2024-02-15-preview"
+      use_azure_ad: True
+      ssl_verify: "/path/to/your/ca-cert.pem"
+      http_proxy: "os.environ/AZURE_PROXY"
+      rpm: 1000
+
+  - model_name: gpt-4.1-mini
+    litellm_params:
+      model: azure/your-gpt-4-1-mini-deployment-name
+      api_base: your-azure-api-endpoint
+      api_version: "2024-02-15-preview"
+      use_azure_ad: True
+      ssl_verify: "/path/to/your/ca-cert.pem"
+      http_proxy: "os.environ/AZURE_PROXY"
+      rpm: 1000
+
+  - model_name: gpt-5
+    litellm_params:
+      model: azure/your-gpt-5-deployment-name
+      api_base: your-azure-api-endpoint
+      api_version: "2024-02-15-preview"
+      use_azure_ad: True
+      ssl_verify: "/path/to/your/ca-cert.pem"
+      http_proxy: "os.environ/AZURE_PROXY"
+      rpm: 1000
+
+  - model_name: gpt-5-mini
+    litellm_params:
+      model: azure/your-gpt-5-mini-deployment-name
+      api_base: your-azure-api-endpoint
+      api_version: "2024-02-15-preview"
+      use_azure_ad: True
+      ssl_verify: "/path/to/your/ca-cert.pem"
+      http_proxy: "os.environ/AZURE_PROXY"
+      rpm: 1000
+
+  - model_name: gpt-5-nano
+    litellm_params:
+      model: azure/your-gpt-5-nano-deployment-name
+      api_base: your-azure-api-endpoint
+      api_version: "2024-02-15-preview"
+      use_azure_ad: True
+      ssl_verify: "/path/to/your/ca-cert.pem"
+      http_proxy: "os.environ/AZURE_PROXY"
+      rpm: 1000
+
+  - model_name: gemini-3-flash
+    litellm_params:
+      model: vertex_ai/gemini-3-flash
+      vertex_project: "os.environ/VERTEX_PROJECT"
+      vertex_location: "os.environ/VERTEX_LOCATION"
+      http_proxy: "os.environ/GEMINI_PROXY"
+      ssl_verify: "/path/to/your/ca-cert.pem"
+
+  - model_name: gemini-3-pro
+    litellm_params:
+      model: vertex_ai/gemini-3-pro
+      vertex_project: "os.environ/VERTEX_PROJECT"
+      vertex_location: "os.environ/VERTEX_LOCATION"
+      http_proxy: "os.environ/GEMINI_PROXY"
+      ssl_verify: "/path/to/your/ca-cert.pem"
+
+  - model_name: qwen-max
+    litellm_params:
+      model: dashscope/qwen-max
+      api_key: "os.environ/DASHSCOPE_API_KEY"
+      http_proxy: "os.environ/QWEN_PROXY"
+      ssl_verify: "/path/to/your/ca-cert.pem"
+
+router_settings:
+  routing_strategy: simple-shuffle
+  model_group_alias:
+    "default-model": ["gpt-4", "gemini-pro"]
+
+general_settings:
+  master_key: sk-1234
+  database_type: "proxy_client"
+
+litellm_settings:
+  drop_params: True
+  set_verbose: False
