@@ -165,7 +165,6 @@ def build_config_yaml(
             "",
             "general_settings:",
             f"  master_key: {master_key}",
-            '  database_type: "proxy_client"',
             "",
             "litellm_settings:",
             "  drop_params: True",
