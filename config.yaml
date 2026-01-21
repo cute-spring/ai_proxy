@@ -1,63 +1,55 @@
 model_list:
-  - model_name: gpt-4
+  # OpenAI Models
+  - model_name: gpt-4o
     litellm_params:
-      model: azure/your-deployment-name
-      api_base: your-azure-api-endpoint
-      api_version: "2024-02-15-preview"
-      use_azure_ad: True
+      model: openai/gpt-4o
+      api_key: "os.environ/OPENAI_API_KEY"
       ssl_verify: "/path/to/your/ca-cert.pem"
-      http_proxy: "os.environ/AZURE_PROXY"
-      rpm: 1000
+      http_proxy: "os.environ/OPENAI_PROXY"
 
-  - model_name: gpt-4.1
+  - model_name: gpt-4o-mini
     litellm_params:
-      model: azure/your-gpt-4-1-deployment-name
-      api_base: your-azure-api-endpoint
-      api_version: "2024-02-15-preview"
-      use_azure_ad: True
+      model: openai/gpt-4o-mini
+      api_key: "os.environ/OPENAI_API_KEY"
       ssl_verify: "/path/to/your/ca-cert.pem"
-      http_proxy: "os.environ/AZURE_PROXY"
-      rpm: 1000
+      http_proxy: "os.environ/OPENAI_PROXY"
 
-  - model_name: gpt-4.1-mini
+  - model_name: gpt-4-turbo
     litellm_params:
-      model: azure/your-gpt-4-1-mini-deployment-name
-      api_base: your-azure-api-endpoint
-      api_version: "2024-02-15-preview"
-      use_azure_ad: True
+      model: openai/gpt-4-turbo
+      api_key: "os.environ/OPENAI_API_KEY"
       ssl_verify: "/path/to/your/ca-cert.pem"
-      http_proxy: "os.environ/AZURE_PROXY"
-      rpm: 1000
+      http_proxy: "os.environ/OPENAI_PROXY"
 
-  - model_name: gpt-5
+  # Azure OpenAI Models
+  - model_name: azure-gpt-4
     litellm_params:
-      model: azure/your-gpt-5-deployment-name
-      api_base: your-azure-api-endpoint
+      model: azure/your-gpt-4-deployment-name
+      api_base: "https://your-azure-openai-resource.openai.azure.com/"
       api_version: "2024-02-15-preview"
-      use_azure_ad: True
+      api_key: "os.environ/AZURE_OPENAI_API_KEY"
       ssl_verify: "/path/to/your/ca-cert.pem"
       http_proxy: "os.environ/AZURE_PROXY"
-      rpm: 1000
 
-  - model_name: gpt-5-mini
+  - model_name: azure-gpt-4-turbo
     litellm_params:
-      model: azure/your-gpt-5-mini-deployment-name
-      api_base: your-azure-api-endpoint
+      model: azure/your-gpt-4-turbo-deployment-name
+      api_base: "https://your-azure-openai-resource.openai.azure.com/"
       api_version: "2024-02-15-preview"
-      use_azure_ad: True
+      api_key: "os.environ/AZURE_OPENAI_API_KEY"
       ssl_verify: "/path/to/your/ca-cert.pem"
       http_proxy: "os.environ/AZURE_PROXY"
-      rpm: 1000
 
-  - model_name: gpt-5-nano
+  # Azure AD Authentication (Service Principal)
+  - model_name: azure-ad-gpt-4
     litellm_params:
-      model: azure/your-gpt-5-nano-deployment-name
-      api_base: your-azure-api-endpoint
+      model: azure/your-gpt-4-deployment-name
+      api_base: "https://your-azure-openai-resource.openai.azure.com/"
       api_version: "2024-02-15-preview"
       use_azure_ad: True
+      azure_ad_token: "os.environ/AZURE_AD_TOKEN"
       ssl_verify: "/path/to/your/ca-cert.pem"
       http_proxy: "os.environ/AZURE_PROXY"
-      rpm: 1000
 
   - model_name: gemini-3-flash
     litellm_params:
